@@ -2,30 +2,36 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <!-- the page title will be a varible passed to the render_template() function for each page separately-->
     <title> {{ page_title }}</title>
-  	<meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <!-- include the css from the file static/style.css -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-  </head>
-  <body>
+</head>
 
-  <!-- this headline will appear on all pages. -->
-  <header>
-    <div class="banner">
-      <h1> All about CODE </h1> 
-      <h3> A really great place. </h3>
-    </div>
-  </header>
+<body>
 
-  <!-- This is the part which will be different on each page. 
+    <!-- this headline will appear on all pages. -->
+    <header>
+        <div class="banner">
+            <h1> All about CODE </h1>
+            <h3> A place for digital pioneers </h3>
+        </div>
+        <ul>
+            <li><a href="/first-page">Studying at Code</a></li>
+            <li><a href="/second-page">Contact Me</a></li>
+            <li><a href="/index">Landing Page</a></li>
+        </ul>
+    </header>
+
+    <!-- This is the part which will be different on each page. 
        see first-page.html for an example of using it -->
-  <main>
-    {% block content%}
-    {% endblock %}
-  </main>
-  <footer>
-    <h3> Made with love </h3>
-  </footer>
-  </body>
+    <main>
+        {% block content%} {% endblock %}
+    </main>
+    <footer>
+        <h3> Made with love </h3>
+    </footer>
+</body>

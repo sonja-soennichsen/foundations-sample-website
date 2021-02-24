@@ -1,15 +1,26 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin-left: 2rem;
+    margin: 0;
+    padding: 0;
 }
 
-.banner{
-    margin-top: 2rem;
+@viewport {
+    width: device-width;
+    zoom: 1.1;
+    min-zoom: 0.4;
+    max-zoom: 2;
+    user-zoom: fixed;
+}
+
+.banner {
     color: blueviolet;
     margin-bottom: 1rem;
 }
 
-footer{
-    margin-top: 5rem;
+footer {
+    margin-top: 75vh;
+    height: 25vh;
+    width: 10vw;
+    background-color: aqua;
     text-align: center;
 }
