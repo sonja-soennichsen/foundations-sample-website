@@ -22,16 +22,16 @@ body {
 footer {
     background-color: #F2E8E4;
     text-align: center;
-    height: 30vh;
     width: 100%;
     color: #0B2126;
     padding-top: 3rem;
+    padding-bottom: 3rem;
 }
 
 table {
     text-align: center;
     width: 40%;
-    margin: 1rem 0 0 60%;
+    margin: 1rem 0 1rem 60%;
 }
 
 th {
@@ -82,6 +82,10 @@ h3 {
     margin: 3rem 0 0 5rem;
 }
 
+h4 {
+    margin: 3rem 0 0 5rem;
+}
+
 button {
     padding: 1rem;
     background-color: #0B2126;
@@ -89,7 +93,20 @@ button {
     border: 1px solid #F2E8E4;
     float: left;
     border-radius: 3px;
-    transition: 0.4s;
+    transition: 0.2s;
+}
+
+.second_view button {
+    background-color: #F2E8E4;
+    border: 1px solid #0B2126;
+}
+
+.second_view button a {
+    color: #0B2126;
+}
+
+.second_view button a:hover {
+    color: #F2E8E4;
 }
 
 button a {
@@ -99,7 +116,7 @@ button a {
 }
 
 button:hover {
-    background-color: #59180A;
+    background-color: #8C260F;
     box-shadow: -2px 5px 2px grey;
 }
 
@@ -108,7 +125,9 @@ button:hover {
 }
 
 .first_view {
-    height: 50vh;
+    height: 75vh;
+    padding-top: 3rem;
+    background-color: #0B2126;
 }
 
 .second_view {
@@ -131,4 +150,36 @@ p {
 
 .study_programs button {
     margin: 1rem auto auto 5rem;
+}
+
+ul {
+    margin: 1rem 5rem 1rem 5rem;
+}
+
+ol {
+    margin: 1rem 3rem 1rem 4rem;
+}
+
+.admissions button {
+    margin: 3rem auto auto 5rem;
+}
+
+input {
+    width: 21vw;
+    padding: 1rem;
+    border: 1px solid #0B2126;
+    color: #0B2126;
+    border-radius: 3px;
+    margin: 1rem;
+    font-size: 1rem;
+}
+
+textarea {
+    width: 21vw;
+    padding: 1rem;
+    border: 1px solid #0B2126;
+    color: #0B2126;
+    border-radius: 3px;
+    margin: 1rem;
+    resize: none;
 }

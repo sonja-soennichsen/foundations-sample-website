@@ -21,8 +21,8 @@
         <table>
             <tr>
                 <th><a href="/">Home</a></th>
-                <th><a href="/first-page">Students</a></th>
-                <th><a href="/second-page">Programs</a></th>
+                <th><a href="/second-page">Study Programs</a></th>
+                <th><a href="/first-page">Apply</a></th>
             </tr>
         </table>
 
@@ -34,12 +34,14 @@
         {% block content%} {% endblock %}
     </main>
     <footer>
-        <h3> Contact us </h3>
+        <h2> Contact us </h2>
         <form>
             <label for="fname">Name:</label><br>
-            <input type="text" id="fname" value="Satoshi Nakamoto"><br><br>
-            <label for="fname">E-Mail:</label><br>
-            <input type="text" id="fname" value="satoshi.nakamoto@gmail.com"><br><br>
+            <input type="text" id="name"><br><br>
+            <label for="femail">E-Mail:</label><br>
+            <input type="email" id="email"><br><br>
+            <label for="fmessage">Message:</label><br>
+            <textarea name="message" rows="10" cols="30"> </textarea><br> <br>
             <input type="submit" value="Submit">
         </form>
     </footer>
