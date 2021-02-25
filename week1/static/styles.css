@@ -1,7 +1,9 @@
 body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #0B2126;
+    color: #F2E8E4
 }
 
 @viewport {
@@ -13,14 +15,115 @@ body {
 }
 
 .banner {
-    color: blueviolet;
+    color: #D93B18;
     margin-bottom: 1rem;
 }
 
 footer {
-    margin-top: 75vh;
-    height: 25vh;
-    width: 10vw;
-    background-color: aqua;
+    background-color: #F2E8E4;
     text-align: center;
+    height: 30vh;
+    width: 100%;
+    color: #0B2126;
+    padding-top: 3rem;
+}
+
+table {
+    text-align: center;
+    width: 40%;
+    margin: 1rem 0 0 60%;
+}
+
+th {
+    width: 10%;
+    margin-top: 1vh;
+    padding: 1vh;
+}
+
+table a {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: #F2E8E4;
+    text-transform: uppercase;
+    padding: 4px 0;
+    transition: 0.5s;
+}
+
+table a::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 3px;
+    top: 100%;
+    left: 0;
+    background: #59180A;
+    transition: transform 0.5s;
+    transform: scaleX(0);
+    transform-origin: right;
+}
+
+table a:hover {
+    color: #D93B18;
+}
+
+table a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+h1 {
+    margin: 5rem 0 0 5rem;
+    font-weight: bold;
+}
+
+h3 {
+    margin: 3rem 0 0 5rem;
+}
+
+.first_view {
+    height: 50vh;
+}
+
+button {
+    padding: 1rem;
+    background-color: #0B2126;
+    font-size: 1em;
+    border: 1px solid #F2E8E4;
+    float: left;
+    border-radius: 3px;
+    transition: 0.4s;
+}
+
+button a {
+    color: #F2E8E4;
+    text-decoration: none;
+}
+
+button:hover {
+    background-color: #59180A;
+    box-shadow: -2px 5px 2px grey;
+}
+
+.buttonbox {
+    margin: 5rem auto auto 5rem;
+}
+
+.second_view {
+    background-color: #F2E8E4;
+    height: 50vh;
+    width: 100%;
+    color: #0B2126;
+    padding-top: 5rem;
+}
+
+.third_view {
+    height: 50vh;
+    width: 100%;
+    padding-top: 5rem;
+}
+
+p {
+    margin: 1rem 5rem 1rem 5rem;
 }

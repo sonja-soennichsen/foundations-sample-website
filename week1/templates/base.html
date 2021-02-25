@@ -9,21 +9,23 @@
     <meta charset="utf-8" />
     <!-- include the css from the file static/style.css -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 </head>
 
 <body>
 
     <!-- this headline will appear on all pages. -->
     <header>
-        <div class="banner">
-            <h1> All about CODE </h1>
-            <h3> A place for digital pioneers </h3>
-        </div>
-        <ul>
-            <li><a href="/first-page">Studying at Code</a></li>
-            <li><a href="/second-page">Contact Me</a></li>
-            <li><a href="/index">Landing Page</a></li>
-        </ul>
+        <table>
+            <tr>
+                <th><a href="/">Home</a></th>
+                <th><a href="/first-page">Students</a></th>
+                <th><a href="/second-page">Programs</a></th>
+            </tr>
+        </table>
+
     </header>
 
     <!-- This is the part which will be different on each page. 
@@ -32,6 +34,13 @@
         {% block content%} {% endblock %}
     </main>
     <footer>
-        <h3> Made with love </h3>
+        <h3> Contact us </h3>
+        <form>
+            <label for="fname">Name:</label><br>
+            <input type="text" id="fname" value="Satoshi Nakamoto"><br><br>
+            <label for="fname">E-Mail:</label><br>
+            <input type="text" id="fname" value="satoshi.nakamoto@gmail.com"><br><br>
+            <input type="submit" value="Submit">
+        </form>
     </footer>
 </body>
