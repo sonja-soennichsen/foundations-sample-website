@@ -183,3 +183,13 @@ textarea {
     margin: 1rem;
     resize: none;
 }
+
+.submit_button {
+    transition: 0.2s;
+}
+
+.submit_button:hover {
+    background-color: #8C260F;
+    box-shadow: -2px 5px 2px grey;
+    color: #F2E8E4;
+}
