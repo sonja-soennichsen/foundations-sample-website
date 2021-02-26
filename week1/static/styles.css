@@ -126,7 +126,7 @@ button:hover {
 
 .first_view {
     height: 75vh;
-    padding-top: 3rem;
+    padding-top: 5rem;
     background-color: #0B2126;
 }
 
@@ -135,13 +135,45 @@ button:hover {
     height: 60vh;
     width: 100%;
     color: #0B2126;
-    padding-top: 5rem;
+    padding-top: 7rem;
 }
 
 .third_view {
     height: 60vh;
     width: 100%;
-    padding-top: 5rem;
+    padding-top: 7rem;
+}
+
+.last_view {
+    background-image: url(https://code.berlin/content/uploads/8f750e8e-2400x1600.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    height: 60vh;
+    width: 100%;
+    padding-top: 7rem;
+    background-repeat: no-repeat;
+}
+
+.last_view h1 {
+    mix-blend-mode: difference;
+    font-weight: bold;
+    font-size: 5rem;
+    text-align: center;
+}
+
+.last_view h3 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.first_view h1 {
+    color: #F2E8E4;
+    font-weight: bold;
+    font-size: 5rem;
+}
+
+.first_view h3 {
+    color: #F2E8E4;
 }
 
 p {
