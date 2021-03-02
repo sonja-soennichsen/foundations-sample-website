@@ -19,3 +19,5 @@ def get_color_code(color_name):
             if color == key:
                 hex = data[key]
                 return hex
+                break
+        return " not a valid CSS Colorname"

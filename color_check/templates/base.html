@@ -4,6 +4,23 @@
 <html>
 
 <head>
+    <script>
+        function addCss(rule) {
+            let css = document.createElement('style');
+            css.type = 'text/css';
+            if (css.styleSheet) css.styleSheet.cssText = rule; // Support for IE
+            else css.appendChild(document.createTextNode(rule)); // Support for the rest
+            document.getElementsByTagName("head")[0].appendChild(css);
+        }
+
+        // CSS rules
+        let rule = '.square { background-color: {{ color_hex_code }}; width: 100px; height: 100px; }';
+
+        // Load the rules and execute after the DOM loads
+        window.onload = function() {
+            addCss(rule)
+        };
+    </script>
     <!-- the page title will be a varible passed to the render_template() function for each page separately-->
     <title> {{ page_title }}</title>
     <meta charset="utf-8" />
@@ -23,6 +40,6 @@
         {% block content%} {% endblock %}
     </main>
     <footer>
-        <h3> The color is {{color_hex_code}} </h3>
+        <h3> Your Input is {{color_hex_code}} </h3>
     </footer>
 </body>
