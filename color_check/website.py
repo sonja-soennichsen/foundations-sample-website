@@ -14,8 +14,8 @@ def show_color():
     # will be send to this route, and whatever code you write here will
     # be run by your server. In order to render a new page for your user,
     # you will need to do a few things:
-    # - extract the data submitted by the user
-    # - check if the color exists in our list, return the hex code if it does
+    # -- extract the data submitted by the user
+    # -- check if the color exists in our list, return the hex code if it does
     # - render a new page which shows a square of that color and its name
     # - if the color doesn't exist, give the user a useful error message.
     # - create a log.txt file which records (logs) the user requests.
