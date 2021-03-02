@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from controllers.get_color_code import get_color_code
+
 app = Flask(__name__)
 
 
