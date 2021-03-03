@@ -12,12 +12,16 @@ import json
 def get_color_code(color_name):
     # reading the data from the file
     # looping though it, comparing keys with color_name
-    color = str(color_name)
-    with open('color_check/data/css-color-names.json') as f:
-        data = json.load(f)
-        for key in data.keys():
-            if color == key:
-                hex = data[key]
-                return hex
-                break
-        return " not a valid CSS Colorname"
+    try:
+        color = color_name.lower().strip()
+        with open('color_check/data/css-color-names.json') as f:
+            data = json.load(f)
+            for key in data.keys():
+                if color == key:
+                    hex = data[key]
+                    return hex
+                    break
+            color_hex_code = None
+        return color_hex_code
+    except FileNotFoundError:
+        return "File cannot be found"

@@ -1,0 +1,4 @@
+werkzeug - INFO - 127.0.0.1 - - [03/Mar/2021 09:41:27] "[37mPOST /color HTTP/1.1[0m" 200 -
+werkzeug - INFO - 127.0.0.1 - - [03/Mar/2021 09:41:27] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+werkzeug - INFO - 127.0.0.1 - - [03/Mar/2021 09:41:29] "[37mGET / HTTP/1.1[0m" 200 -
+werkzeug - INFO - 127.0.0.1 - - [03/Mar/2021 09:41:31] "[37mPOST /color HTTP/1.1[0m" 200 -

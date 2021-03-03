@@ -1,6 +1,7 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-left: 2rem;
+    text-align: center;
 }
 
 .banner {
@@ -12,4 +13,9 @@ body {
 footer {
     margin-top: 5rem;
     text-align: center;
+}
+
+a {
+    padding: 1rem;
+    background-color: rgb(160, 185, 207);
 }
