@@ -13,11 +13,15 @@ def get_color_code(color_name):
     # reading the data from the file
     # looping though it, comparing keys with color_name
     try:
-        color = color_name.lower().strip()
+        color_name = color_name.lower().strip()
+    except AttributeError:
+        pass
+
+    try:
         with open('color_check/data/css-color-names.json') as f:
             data = json.load(f)
             for key in data.keys():
-                if color == key:
+                if color_name == key:
                     hex = data[key]
                     return hex
                     break

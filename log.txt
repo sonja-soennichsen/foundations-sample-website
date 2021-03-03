@@ -36,3 +36,6 @@ werkzeug - INFO -  * Debugger PIN: 104-329-668
 werkzeug - INFO -  * Detected change in '/Users/ssoennic/foundations-sample-website/color_check/website.py', reloading
 werkzeug - WARNING -  * Debugger is active!
 werkzeug - INFO -  * Debugger PIN: 104-329-668
+root - DEBUG - User string: red is valid
+root - DEBUG - User string: Blue is valid
+root - DEBUG - 99 is not a valid CSS Color Name

@@ -1,5 +1,5 @@
-from website import app
-from controllers.get_color_code import get_color_code
+from color_check.website import app
+from color_check.controllers.get_color_code import get_color_code
 
 
 # test the  function we've written to check on the colors themselves
