@@ -6,3 +6,4 @@ junit/
 *.pyc
 foundations-2021-f1c17c8fba32.json
 .DS_Store
+log.txt

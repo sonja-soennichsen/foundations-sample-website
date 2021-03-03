@@ -4,6 +4,11 @@ import logging
 
 app = Flask(__name__)
 
+# configure log function
+logging.basicConfig(filename='log.txt', filemode='a',
+                    format='%(name)s - %(levelname)s - %(message)s',
+                    level=logging.DEBUG)
+
 
 @app.route('/')
 def index():
@@ -21,16 +26,21 @@ def show_color():
     # - render a new page which shows a square of that color and its name
     # - if the color doesn't exist, give the user a useful error message.
     # - create a log.txt file which records (logs) the user requests.
-    logging.basicConfig(filename='log.txt', filemode='w', format='%(name)s - %(levelname)s - %(message)s')
 
+    # retrieving user request from HTML Form
     req = request.form
     user_submitted_string = req.get("color")
     color_hex_code = get_color_code(user_submitted_string)
 
+    # rendering templates according to user input
     if color_hex_code is None:
+        # logging user requests
+        logging.debug(f"{user_submitted_string} is not a valid CSS Color Name")
         return render_template('nocolor.html', page_tile="Not Found",
                                color_name=user_submitted_string)
     else:
+        # logging user requests
+        logging.debug(f"User string: {user_submitted_string} is valid")
         return render_template('color.html', page_title="Show Color",
                                color_hex_code=color_hex_code,
                                color_name=user_submitted_string)
