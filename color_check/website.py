@@ -5,7 +5,7 @@ import logging
 app = Flask(__name__)
 
 # configure log function
-logging.basicConfig(filename='tmp/log.txt', filemode='a',
+logging.basicConfig(filename='/tmp/log.txt', filemode='a',
                     format='%(name)s - %(levelname)s - %(message)s',
                     level=logging.DEBUG)
 
@@ -40,7 +40,7 @@ def show_color():
                                color_name=user_submitted_string)
     else:
         # logging user requests
-        # logging.debug(f"User string: {user_submitted_string} is valid")
+        logging.debug(f"User string: {user_submitted_string} is valid")
         return render_template('color.html', page_title="Show Color",
                                color_hex_code=color_hex_code,
                                color_name=user_submitted_string)
