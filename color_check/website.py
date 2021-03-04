@@ -1,13 +1,13 @@
 from flask import Flask, render_template, request
 from color_check.controllers.get_color_code import get_color_code
-# import logging
+import logging
 
 app = Flask(__name__)
 
 # configure log function
-# logging.basicConfig(filename='log.txt', filemode='a',
-#                    format='%(name)s - %(levelname)s - %(message)s',
-#                    level=logging.DEBUG)
+logging.basicConfig(filename='tmp/log.txt', filemode='a',
+                    format='%(name)s - %(levelname)s - %(message)s',
+                    level=logging.DEBUG)
 
 
 @app.route('/')
@@ -35,7 +35,7 @@ def show_color():
     # rendering templates according to user input
     if color_hex_code is None:
         # logging user requests
-        # logging.debug(f"{user_submitted_string} is not a valid CSS Color Name")
+        logging.debug(f"{user_submitted_string} is not a valid CSS Color Name")
         return render_template('nocolor.html', page_tile="Not Found",
                                color_name=user_submitted_string)
     else:
