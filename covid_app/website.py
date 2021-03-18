@@ -1,5 +1,5 @@
 from os import getenv
-from shutil import copyfile
+from shutil import copyfile 
 
 from flask import Flask, request
 from flask import render_template
@@ -63,7 +63,7 @@ def create_meeting():
 
         # now, get all of the meetings from the database, not just the new one.
         # first, define the query to get all meetings:
-        sql_query = "SELECT * FROM Meetings;"
+        sql_query = "SELECT * FROM Meetings ORDER BY date ASC;"
 
         # query the database, by passinng the database cursor and query,
         # we expect a list of tuples corresponding to all rows in the database
