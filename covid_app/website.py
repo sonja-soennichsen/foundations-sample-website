@@ -1,5 +1,6 @@
 from os import getenv
 from shutil import copyfile 
+import datetime
 
 from flask import Flask, request
 from flask import render_template
@@ -44,13 +45,16 @@ def create_meeting():
     try:
         name = request.form.get('name')
         date = request.form.get('date')
-        # app.logger.info(name)
-        # turn this into an SQL command. For example:
-        # "Adam" --> "INSERT INTO Meetings (name) VALUES("Adam");"
+        date_format = '%Y-%m-%d'
+        date_obj = datetime.datetime.strptime(date, date_format)
+
         sql_insert = """
         INSERT INTO Meetings (name, date) VALUES (\"{name}\",\"{date}\");
         """.format(
-            name=name, date=date)
+            name=name, date=date_obj)
+        delete_older = """
+        DELETE FROM Meetings WHERE date <= date('now', '-14 day')
+        """
 
         # connect to the database with the filename configured above
         # returning a 2-tuple that contains a connection and cursor object
@@ -60,6 +64,7 @@ def create_meeting():
         # now that we have connected, add the new meeting (insert a row)
         # --> see file database_helpers for more
         change_database(database_tuple[0], database_tuple[1], sql_insert)
+        change_database(database_tuple[0], database_tuple[1], delete_older)
 
         # now, get all of the meetings from the database, not just the new one.
         # first, define the query to get all meetings:
