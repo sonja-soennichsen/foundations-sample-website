@@ -13,3 +13,20 @@ footer {
     margin-top: 5rem;
     text-align: center;
 }
+
+.table {
+    border-spacing: 0;
+    background-color: #f5f5f5;
+}
+
+.table_row:nth-child(even) {
+    background-color: #e5e5e5;
+}
+
+.table_header {
+    text-align: left;
+}
+
+.table_cell {
+    padding: 8px;
+}

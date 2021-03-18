@@ -8,6 +8,7 @@ from covid_app.controllers.database_helpers import close_conection_to_database
 from covid_app.controllers.database_helpers import change_database
 from covid_app.controllers.database_helpers import query_database
 
+
 app = Flask(__name__)
 
 # This is a terrible example of how to configure a flask.
@@ -42,11 +43,14 @@ def index():
 def create_meeting():
     try:
         name = request.form.get('name')
+        date = request.form.get('date')
         # app.logger.info(name)
         # turn this into an SQL command. For example:
         # "Adam" --> "INSERT INTO Meetings (name) VALUES("Adam");"
-        sql_insert = "INSERT INTO Meetings (name) VALUES (\"{name}\");".format(
-            name=name)
+        sql_insert = """
+        INSERT INTO Meetings (name, date) VALUES (\"{name}\",\"{date}\");
+        """.format(
+            name=name, date=date)
 
         # connect to the database with the filename configured above
         # returning a 2-tuple that contains a connection and cursor object
@@ -64,13 +68,13 @@ def create_meeting():
         # query the database, by passinng the database cursor and query,
         # we expect a list of tuples corresponding to all rows in the database
         query_response = query_database(database_tuple[1], sql_query)
-
         close_conection_to_database(database_tuple[0])
 
         # In addition to HTML, we will respond with an HTTP Status code
         # The status code 201 means "created": a row was added to the database
         return render_template('index.html', page_title="Covid Diary",
-                               meetings=query_response), 201
+                               data=query_response), 201
+
     except Exception:
         # something bad happended. Return an error page and a 500 error
         error_code = 500
