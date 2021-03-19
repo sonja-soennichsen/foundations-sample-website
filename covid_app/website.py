@@ -69,16 +69,66 @@ def create_meeting():
         # now, get all of the meetings from the database, not just the new one.
         # first, define the query to get all meetings:
         sql_query = "SELECT * FROM Meetings ORDER BY date ASC;"
+        sql_query_contacts = "SELECT * FROM Contacts"
 
         # query the database, by passinng the database cursor and query,
         # we expect a list of tuples corresponding to all rows in the database
         query_response = query_database(database_tuple[1], sql_query)
+        query_response_contacts = query_database(database_tuple[1], 
+                                                 sql_query_contacts)
         close_conection_to_database(database_tuple[0])
 
         # In addition to HTML, we will respond with an HTTP Status code
         # The status code 201 means "created": a row was added to the database
         return render_template('index.html', page_title="Covid Diary",
-                               data=query_response), 201
+                               meetings=query_response, 
+                               contacts=query_response_contacts), 201
+
+    except Exception:
+        # something bad happended. Return an error page and a 500 error
+        error_code = 500
+        return render_template('error.html', page_title=error_code), error_code
+
+
+@app.route('/createContact', methods=['POST'])
+def create_contact():
+    try:
+        cname = request.form.get('cname')
+        tel = request.form.get('tel')
+        email = request.form.get('email')
+
+        sql_insert = """
+        INSERT INTO Contacts (Name, Email, PhoneNr) VALUES (\"{cname}\",
+        \"{email}\", \"{phone}\");
+        """.format(
+            cname=cname, email=email, phone=tel)
+
+        # connect to the database with the filename configured above
+        # returning a 2-tuple that contains a connection and cursor object
+        # --> see file database_helpers for more
+        database_tuple = connect_to_database(app.config["DATABASE_FILE"])
+
+        # now that we have connected, add the new meeting (insert a row)
+        # --> see file database_helpers for more
+        change_database(database_tuple[0], database_tuple[1], sql_insert)
+
+        # now, get all of the meetings from the database, not just the new one.
+        # first, define the query to get all meetings:
+        sql_query = "SELECT * FROM Meetings ORDER BY date ASC;"
+        sql_query_contacts = "SELECT * FROM Contacts"
+
+        # query the database, by passinng the database cursor and query,
+        # we expect a list of tuples corresponding to all rows in the database
+        query_response = query_database(database_tuple[1], sql_query)
+        query_response_contacts = query_database(database_tuple[1], 
+                                                 sql_query_contacts)
+        close_conection_to_database(database_tuple[0])
+
+        # In addition to HTML, we will respond with an HTTP Status code
+        # The status code 201 means "created": a row was added to the database
+        return render_template('index.html', page_title="Covid Diary",
+                               meetings=query_response, 
+                               contacts=query_response_contacts), 201
 
     except Exception:
         # something bad happended. Return an error page and a 500 error
