@@ -23,18 +23,12 @@ function getMeetings() {
                     .then(function(data) {
                         const main = document.getElementById("result");
                         main.innerHTML = " ";
-                        const getListOfNames = (data) => {
-                            const names = data
-                                .map((person) => `<li>${data}</li>`)
-                                .join("\n");
-                            return names;
-                        };
+                        data.forEach(displayText);
 
-
-                        console.log(data);
-                        data.forEach(element => main.innerHTML = main.innerHTML + getListOfNames(element));
-
-                        //document.querySelector(".result").innerHTML = data;
+                        function displayText(item, index) {
+                            document.getElementById("result").innerHTML += index + ": " + item[0] + "<br>";
+                        }
+                        document.getElementById("meeting-form").reset();
                     });
 
             }
